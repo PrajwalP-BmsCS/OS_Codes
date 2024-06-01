@@ -10,6 +10,7 @@ struct P{
     int rt;
     int st;
     int et;
+    int v;
 };
 
 void main(){
