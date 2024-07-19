@@ -45,7 +45,7 @@ void main(){
             p[i].st=p[i].at;
         }
         p[i].et=p[i].st+p[i].bt;
-        ct+=p[i].bt;
+        ct=p[i].et;
     }
     for(int i=0;i<n;i++){
         p[i].tat=p[i].et-p[i].at;
