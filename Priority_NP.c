@@ -78,7 +78,7 @@ void main(){
             p[i].st=p[i].at;
         }
         p[i].et=p[i].st+p[i].bt;
-        ct+=p[i].bt;
+        ct=p[i].et;
 
         p[i].tat=p[i].et-p[i].at;
         p[i].wt=p[i].tat-p[i].bt;

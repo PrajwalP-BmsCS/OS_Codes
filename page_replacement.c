@@ -1,6 +1,13 @@
+
+//Write a C program to simulate page replacement algorithms
+//a) FIFO
+//b) LRU
+//c) Optimal
+
+
 #include <stdio.h>
 
-// Function to check if the page is present in the frames
+
 int isPagePresent(int frames[], int n, int page) {
     for (int i = 0; i < n; i++) {
         if (frames[i] == page) {
@@ -10,7 +17,7 @@ int isPagePresent(int frames[], int n, int page) {
     return 0;
 }
 
-// Function to print the frames
+
 void printFrames(int frames[], int n) {
     for (int i = 0; i < n; i++) {
         if (frames[i] != -1) {
@@ -22,12 +29,11 @@ void printFrames(int frames[], int n) {
     printf("\n");
 }
 
-// Function to implement FIFO page replacement
 void fifoPageReplacement(int pages[], int numPages, int numFrames) {
     int frames[numFrames];
     int front = 0, pageFaults = 0;
 
-    // Initialize frames
+   
     for (int i = 0; i < numFrames; i++) {
         frames[i] = -1;
     }
@@ -48,7 +54,7 @@ void fifoPageReplacement(int pages[], int numPages, int numFrames) {
     printf("\nTotal Page Faults: %d\n\n", pageFaults);
 }
 
-// Function to find the page to replace using the Optimal page replacement algorithm
+
 int findOptimalReplacementIndex(int pages[], int numPages, int frames[], int numFrames, int currentIndex) {
     int farthest = currentIndex;
     int index = -1;
@@ -64,22 +70,22 @@ int findOptimalReplacementIndex(int pages[], int numPages, int frames[], int num
                 break;
             }
         }
-        // If the page is not found in future, return this index
+      
         if (j == numPages) {
             return i;
         }
     }
 
-    // If all pages are found in future, return the one with farthest future use
+   
     return (index == -1) ? 0 : index;
 }
 
-// Function to implement Optimal page replacement
+
 void optPageReplacement(int pages[], int numPages, int numFrames) {
     int frames[numFrames];
     int pageFaults = 0;
 
-    // Initialize frames
+    
     for (int i = 0; i < numFrames; i++) {
         frames[i] = -1;
     }
@@ -109,13 +115,13 @@ void optPageReplacement(int pages[], int numPages, int numFrames) {
     printf("\nTotal Page Faults: %d\n\n", pageFaults);
 }
 
-// Function to implement LRU page replacement
+
 void lruPageReplacement(int pages[], int numPages, int numFrames) {
     int frames[numFrames];
     int pageFaults = 0;
     int timestamps[numFrames];
 
-    // Initialize frames and timestamps
+    
     for (int i = 0; i < numFrames; i++) {
         frames[i] = -1;
         timestamps[i] = -1;
